@@ -4,11 +4,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ExampleController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::redirect('/', '/profile/create');
+Route::redirect('/', '/rpc/books/{id}/borrow');
 
 Route::get('/profile/create', [ProfileController::class, 'showForm']);
 Route::post('/profile/result', [ProfileController::class, 'processForm']);
