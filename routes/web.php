@@ -9,18 +9,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::redirect('/', '/rpc/books/{id}/borrow');
-
-Route::get('/profile/create', [ProfileController::class, 'showForm']);
-Route::post('/profile/result', [ProfileController::class, 'processForm']);
-
-// Alebo alternatíva
-Route::prefix('profile')->group(function () {
-    Route::get('/create', [ProfileController::class, 'showForm']);
-    Route::post('/result', [ProfileController::class, 'processForm']);
-});
-
-Route::prefix('example')->group(function () {
-Route::get('/create', [ExampleController::class, 'create']);
-Route::post('/result', [ExampleController::class, 'result']);
-});
