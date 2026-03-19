@@ -14,15 +14,19 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('notes/stats/status', [NoteController::class, 'statsByStatus']);
-
 Route::patch('notes/actions/archive-old-drafts', [NoteController::class, 'archiveOldDrafts']);
+Route::get('notes-actions/search', [NoteController::class, 'search']);
+Route::get('notes/pinned', [NoteController::class, 'pinned']);
+
+Route::patch('notes/{id}/publish', [NoteController::class, 'publish']);
+Route::patch('notes/{id}/archive', [NoteController::class, 'archive']);
+Route::patch('notes/{id}/pin', [NoteController::class, 'pin']);
+Route::patch('notes/{id}/unpin', [NoteController::class, 'unpin']);
 
 Route::get('users/{user}/notes', [NoteController::class, 'userNotesWithCategories']);
 
-Route::get('notes-actions/search', [NoteController::class, 'search']);
-
-Route::get('notes/pinned', [NoteController::class, 'pinned']);
-
-
 Route::apiResource('notes', NoteController::class);
 Route::apiResource('categories', CategoryController::class);
+
+
+
